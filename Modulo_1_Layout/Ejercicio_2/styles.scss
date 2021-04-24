@@ -1,0 +1,34 @@
+
+@import './blue-theme';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .box, p {
+        margin: 0.5em;
+    }
+    .box {
+        padding: 1em;
+        border-radius: $borderRadius;
+        border: 1px solid black;
+    }
+    .principal-font {
+        font-family: $principalFont;
+    }
+    .secondary-font {
+        font-family: $secondaryFont;
+    }
+    .base-color {
+        background-color: $baseColor;
+    }
+    .darken {
+        background-color: darken($baseColor, 25%);
+    }
+    .lighten {
+        background-color: lighten($baseColor, 25%);
+    }
+    .shadow {
+        box-shadow: $boxShadow;
+    }
+}

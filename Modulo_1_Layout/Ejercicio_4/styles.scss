@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 20vw;
+    align-items: stretch;
+    article {
+        border: 1px solid gray;
+        img {
+            max-width: 100%;
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            padding: 0 0.5em 0.5em;
+            p {
+                max-height: 100px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            footer {
+                align-self: flex-end;
+                padding: 0.5em 0;
+            }
+            button {
+                cursor: pointer;
+                background: green;
+                border: 0;
+                color: white;
+                padding: 10px;
+                width: 100%;
+            }
+        }
+    }
+    
+}
+
+

@@ -1,0 +1,37 @@
+@import './vars';
+$baseColor: $first-color;
+$percentageGradation: 8%;
+@for $i from 1 to 4 {
+    @if $i == 1 {
+        $baseColor: $first-color;
+    } @else if $i == 2 {
+        $baseColor: $second-color;
+    } @else if $i == 3 {
+        $baseColor: $third-color;
+    }
+    .container-#{$i} {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .box {
+            padding: 1em;
+            margin: 0.5em;
+            border-radius: 0.5em;
+        }
+        .base-color {
+            background-color: $baseColor;
+            color: invert($baseColor);
+        }
+        @for $j from 1 to 5 {
+            .darken-#{$j} {
+                background-color: darken($baseColor, $j * $percentageGradation);
+                color: invert(darken($baseColor, $j * $percentageGradation))
+            }
+            .lighten-#{$j} {
+                background-color: lighten($baseColor, $j * $percentageGradation);
+                color: invert(lighten($baseColor, $j * $percentageGradation));
+            }
+        }
+    }
+}
+
