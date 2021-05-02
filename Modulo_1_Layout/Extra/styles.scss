@@ -1,0 +1,131 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: coral;
+    .toolbar {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    .toolbar,.page-title {
+        padding: 0.5em;
+    }
+}
+
+.page-container {
+    display: flex;
+    flex: 1;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }  
+    nav {
+        background-color: rgb(36, 66, 36);
+        .menu-container {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            width: 150px;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
+            .menu-title {
+                text-align: center;
+                font-weight: bold;
+                color: white;
+                padding: 5px 10px;
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+            ul {
+                padding: 0;
+                margin: 0;
+                & li {
+                    list-style-type: none;
+                    background-color: wheat;
+                    padding: 5px 2px;
+                    border-bottom: 1px solid gray;
+                    @media screen and (max-width: 768px) {
+                        padding: 5px 10px;
+                    }
+                }
+                @media screen and (max-width: 768px) {
+                    padding: 5px;
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+        }
+    
+    }
+    main {
+        flex: 1;
+        .list {
+            flex-grow: 1;
+            background-color: lightgray;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            height: 100%;
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card.item {
+                display: flex;
+                flex-direction: column;
+                flex: 1 0 20%;
+                margin: 1em;
+                max-width: 20%;
+                min-width: 7em;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid black;
+                border-radius: 2%;
+                background-color: white;
+                @media screen and (max-width: 768px) {
+                    display: flex;
+                    flex-direction: row;
+                    width: 90%;
+                    max-width: unset;
+                    min-width: unset;
+                    justify-content: start;
+                    margin: 0.5em;
+                }
+                img {
+                    border-radius: 50%;
+                    padding: 10px 10px 0 10px;
+                    @media screen and (max-width: 768px) {
+                        padding: 10px;
+                    }
+                }
+                .member-name {
+                    text-align: center;
+                    padding: 0 10px 10px 10px;
+                    @media screen and (max-width: 768px) {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 0.5em;
+    background-color: sandybrown;
+    display: flex;
+    align-items: center;
+}
