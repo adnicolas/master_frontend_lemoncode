@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HeaderComponent {
   constructor(public authService: AuthService) { }

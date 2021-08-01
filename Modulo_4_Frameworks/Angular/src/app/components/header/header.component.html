@@ -1,6 +1,6 @@
 <div class="header-container">
     <img src="assets/angular.png">
-    <div class="title">Layout completo de mini aplicación Angular</div>
+    <div rotate class="title">Layout completo de mini aplicación Angular</div>
     <div *ngIf="authService.isLogged$ | async">Usuario: {{authService.username$ | async}}</div>
     <app-private-menu *ngIf="(authService.isLogged$ | async); else noUser;"></app-private-menu>
     <ng-template #noUser>

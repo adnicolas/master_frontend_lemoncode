@@ -1,1 +1,32 @@
-<p>gallery works!</p>
+<div class="gallery-container">
+    <div class="image-list">
+        <img *ngFor="let img of images;" id="{{img.id}}"
+            [ngClass]="{'selected': img.id === (galleryService.selectedImg$ | async).id}"
+            src="{{img.src}}" (click)="setImg(img)"/>
+    </div>
+    <div class="img-ctrl">
+        <div class="selected-image">
+            <img rotate step="20" src="{{(galleryService.selectedImg$ | async).src}}"/>
+        </div>
+        <div class="buttons">
+            <button mat-menu-item [disabled]="checkImg('first')" (click)="changeImg(-1)">
+                <mat-icon>skip_previous</mat-icon>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>zoom_out</mat-icon>
+            </button>
+            <button mat-menu-item [disabled]="checkImg('last')" (click)="play()">
+                <mat-icon>play_arrow</mat-icon>
+            </button>
+            <button mat-menu-item [disabled]="!(galleryService.play$ | async)" (click)="pause()">
+                <mat-icon>pause</mat-icon>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>zoom_in</mat-icon>
+            </button>
+            <button mat-menu-item [disabled]="checkImg('last')" (click)="changeImg(1)">
+                <mat-icon>skip_next</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

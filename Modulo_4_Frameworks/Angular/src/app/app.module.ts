@@ -21,7 +21,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './components/header/header.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RotateDirective } from './directives/rotate.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { MatMenuModule } from '@angular/material/menu';
     FooterComponent,
     PublicMenuComponent,
     PrivateMenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    RotateDirective
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

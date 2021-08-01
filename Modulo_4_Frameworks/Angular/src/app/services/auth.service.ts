@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable, Subject,BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject, of } from "rxjs";
+import { delay } from 'rxjs/operators';
+
 @Injectable({
     providedIn: 'root',
 })
@@ -12,14 +14,14 @@ export class AuthService {
     constructor(private router: Router) {
 
     }
-    public login(username: string, password: string): boolean {
+    public login(username: string, password: string): Observable<boolean> {
         if (username === 'master8@lemoncode.net' && password === '12345678') {
             this.userIsLogged.next(true);
             this.username.next(username);
             localStorage.setItem('username', username);
-            return true;
+            return of(true).pipe(delay(2000));
         } else {
-            return false;
+            return of(false).pipe(delay(2000));
         }
     }
     public logout(): void {

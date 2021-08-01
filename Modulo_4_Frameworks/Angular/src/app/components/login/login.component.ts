@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
+  public isLoading = false;
   public emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -22,8 +23,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   public onLogin() {
-    if (this.authService.login(this.emailFormControl.value, this.passwordFormControl.value)) {
-      this.router.navigate(['/dashboard']);
-    };
+    this.isLoading = true;
+    this.authService.login(this.emailFormControl.value, this.passwordFormControl.value).subscribe(
+      (loginResult: boolean) => {
+        this.isLoading = false;
+        if (loginResult) {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    )
   }
 }
