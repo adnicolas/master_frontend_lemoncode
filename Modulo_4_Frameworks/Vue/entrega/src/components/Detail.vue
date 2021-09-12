@@ -1,7 +1,7 @@
 <template>
-  <div v-if="user" class="grid">
-      <h2>{{ user.name }}</h2>
-      <h2>{{ user.company }}</h2>
+  <div v-if="user">
+      <h2>Nombre: {{ user.name }}</h2>
+      <h2>Compañía: {{ user.company }}</h2>
   </div>
 </template>
 
